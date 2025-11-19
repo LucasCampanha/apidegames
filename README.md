@@ -16,59 +16,74 @@ Gera o token JWT para acessar as rotas protegidas.
   "email": "seu_email@example.com",
   "password": "sua_senha"
 }
-Resposta
-json
-Copiar código
+```
+
+#### **Resposta**
+```json
 {
   "message": "Tudo certo!",
   "token": "SEU_TOKEN_AQUI"
 }
-Enviar token nas requisições protegidas
-makefile
-Copiar código
+```
+
+#### **Enviar token nas requisições protegidas**
+```
 Authorization: Bearer SEU_TOKEN_AQUI
-📘 Rotas da API
+```
+
+---
+
+## 📘 Rotas da API
+
 ⚠️ Todas as rotas abaixo exigem autenticação JWT.
 
-🎮 Games
-📍 GET /games
+---
+
+## 🎮 Games
+
+### 📍 GET /games
 Retorna todos os jogos.
 
-📍 GET /game/:id
+### 📍 GET /game/:id
 Retorna um jogo específico.
 
-Parâmetro	Tipo	Descrição
-id	Number	ID do jogo
+| Parâmetro | Tipo | Descrição |
+|----------|------|------------|
+| id | Number | ID do jogo |
 
-📍 POST /game
+### 📍 POST /game
 Cria um novo jogo.
 
-Body
-json
-Copiar código
+#### **Body**
+```json
 {
   "title": "Nome do jogo",
   "year": 2024,
   "price": 59
 }
-📍 PUT /game/:id
+```
+
+### 📍 PUT /game/:id
 Atualiza um jogo existente.
 
-Body (opcional)
-json
-Copiar código
+#### **Body (opcional)**
+```json
 {
   "title": "Novo título",
   "year": 2020,
   "price": 39
 }
-📍 DELETE /game/:id
+```
+
+### 📍 DELETE /game/:id
 Remove um jogo pelo ID.
 
-🛡 Middleware de Autorização (JWT)
-makefile
-Copiar código
-Authorization: Bearer SEU_TOKEN_AQUI
-O token é validado pelo middleware auth, que bloqueia requisições sem autenticação.
+---
 
-yaml
+## 🛡 Middleware de Autorização (JWT)
+
+```
+Authorization: Bearer SEU_TOKEN_AQUI
+```
+
+O token é validado pelo middleware **auth**, que bloqueia requisições sem autenticação.
